@@ -16,29 +16,19 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.4.2"
 }
 
 processResources {
-    inputs.property "version", project.version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include "fabric.mod.json"
-        expand "version": project.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) { exclude "fabric.mod.json" }
+    inputs.property "version", project.mod_version
+    filesMatching("fabric.mod.json") { expand "version": project.mod_version }
 }
 
-tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
+tasks.withType(JavaCompile).configureEach { it.options.encoding = "UTF-8" }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
-    from sourceSets.main.allSource
-}
+java { withSourcesJar() }
 
-jar {
-    from "LICENSE"
-}
+jar { from("LICENSE") { rename { "${it}_${project.archivesBaseName}"} } }
 
 publishing {
     publications {
@@ -48,5 +38,5 @@ publishing {
         }
     }
 
-    repositories {}
+    repositories { }
 }

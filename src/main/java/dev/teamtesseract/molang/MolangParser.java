@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 public class MolangParser {
 
     private static final Map<MolangElement, MolangElement.Factory<?>> ELEMENTS = new HashMap<>();
-    private static final String TEST_STRING = "math.abs(q.anim_time / 38.0 + 44 - 11.926) * (variable.rotation_scale + v.x) * query.life_time + query.head_rotation('weird_af string')";
 
     public static <T extends MolangElement> void registerToken(T element, MolangElement.Factory<T> factory) {
         ELEMENTS.put(element, factory);
@@ -36,9 +35,6 @@ public class MolangParser {
         registerToken(MolangNumber.DUMMY, MolangNumber::new);
 
         registerNamespace(new MolangMath());
-
-        MolangExpression test = new MolangExpression(parseLine(TEST_STRING));
-        System.out.println(test);
     }
 
     public static List<MolangElement> parseLine(String line) {
