@@ -3,7 +3,7 @@
   "id": "molang",
   "version": "${version}",
   "name": "MolangLib",
-  "description": ":tiny_potato:",
+  "description": "A Java library to parse and process Molang statements.",
   "authors": [],
   "contact": {},
   "license": "MIT",
