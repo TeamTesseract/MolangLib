@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "molang",
+  "version": "${version}",
+  "name": "MolangLib",
+  "description": ":tiny_potato:",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/molang/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [ "dev.teamtesseract.molang.MolangLib" ]
+  },
+  "mixins": [ ],
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*",
+    "minecraft": "1.17.*"
+  }
+}
