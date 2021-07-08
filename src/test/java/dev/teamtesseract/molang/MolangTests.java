@@ -1,4 +1,5 @@
-import dev.teamtesseract.molang.MolangParser;
+package dev.teamtesseract.molang;
+
 import dev.teamtesseract.molang.elements.MolangExpression;
 import org.junit.jupiter.api.Test;
 
