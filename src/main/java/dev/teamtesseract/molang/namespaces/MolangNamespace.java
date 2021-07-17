@@ -14,8 +14,8 @@ public abstract class MolangNamespace {
     private final String namespace;
     private final HashMap<String, MolangFunction> functions;
 
-    public MolangNamespace(String functionName) {
-        this.namespace = functionName;
+    public MolangNamespace(String namespace) {
+        this.namespace = namespace;
         this.functions = new HashMap<>();
     }
 

@@ -18,6 +18,10 @@ public class MolangResult {
         return new MolangResult(f, false, null);
     }
 
+    public static MolangResult ofFloat(double f) {
+        return new MolangResult((float)f, false, null);
+    }
+
     public static MolangResult ofBoolean(boolean b) {
         return new MolangResult(Float.NaN, b, null);
     }

@@ -9,20 +9,21 @@ public class MolangTests {
 
     private static final String TEST_STRING = "math.abs(q.anim_time / 38.0 + 44 - 11.926) * (variable.rotation_scale + v.x) * query.life_time + query.head_rotation('weird_af string')";
 
+    public MolangTests() {
+        MolangParser.init();
+    }
+
     @Test
     public void testMolangParser() {
-        MolangParser.init();
-
         MolangExpression test = new MolangExpression(MolangParser.parseLine(TEST_STRING));
         System.out.println(test);
     }
 
     @Test
     public void operatorTest() {
-        MolangParser.init();
-
         test("(12 + 18 - 15) * 3 / 5", 9.0F, true, "");
         test("1 - 2", -1.0F, false, "");
+        test("math.abs(-1)", 1.0F, true, "");
     }
 
     private void test(String expression, float expectedFloat, boolean expectedBool, String expectedString) {
