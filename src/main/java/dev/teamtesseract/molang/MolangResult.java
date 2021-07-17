@@ -58,4 +58,9 @@ public class MolangResult {
         else
             return "";
     }
+
+    @Override
+    public String toString() {
+        return String.format("R{ F: %.2f | B: %s  | S: \"%s\" }", getFloat(), getBoolean(), getString());
+    }
 }

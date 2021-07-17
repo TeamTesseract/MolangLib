@@ -33,7 +33,9 @@ public class MolangMethod implements MolangElement {
 
     @Override
     public MolangResult process(MolangContext ctx) {
-        return namespace.getFunction(function).process(this.args, ctx);
+        LinkedList<MolangResult> arguments = new LinkedList<>();
+        args.forEach(e -> arguments.add(e.process(ctx)));
+        return namespace.getFunction(function).process(arguments, ctx);
     }
 
     @Override

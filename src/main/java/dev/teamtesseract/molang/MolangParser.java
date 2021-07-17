@@ -47,8 +47,6 @@ public class MolangParser {
         for(int i = 0; i < characters.length; i++) {
             char c = characters[i];
 
-            System.out.println(token);
-
             if(c == '(') {
                 StringBuilder b = new StringBuilder();
                 char next = c;
@@ -80,7 +78,6 @@ public class MolangParser {
             }
 
             if((c == ' ' || c == ';' || c == ',') && !isInString) {
-                System.out.println(token);
                 if(token.length() > 0)
                     tokens.add(parseToken(token.toString()));
                 token = new StringBuilder();
@@ -93,7 +90,6 @@ public class MolangParser {
                 if(isInString) {
                     tokens.add(parseToken(token.toString()));
                     token = new StringBuilder();
-                    System.out.println("Reset! Reason: String finished.");
                 }
                 isInString = !isInString;
             }
@@ -101,7 +97,6 @@ public class MolangParser {
             if(Character.isDigit(c) && i + 1 < characters.length) {
                 while(i < characters.length - 1) {
                     char n = characters[i + 1];
-                    System.out.println(token);
                     if(Character.isDigit(n) || n == '.') {
                         i++;
                         token.append(n);
@@ -113,7 +108,6 @@ public class MolangParser {
             if((isValidToken(token.toString()) || i == characters.length - 1 || characters[i + 1] == '(') && token.length() > 0) {
                 tokens.add(parseToken(token.toString()));
                 token = new StringBuilder();
-                System.out.println("Reset! Reason: Parsed.");
             }
         }
 
