@@ -18,13 +18,13 @@ public class MolangNumber extends MolangValue<Float> {
     }
 
     @Override
-    public boolean isValidToken(String s) {
-        return NumberUtils.isParsable(s);
+    public Float parse(String value) {
+        return Float.parseFloat(value);
     }
 
     @Override
-    public Float parse(String value) {
-        return Float.parseFloat(value);
+    public boolean isValidToken(String s) {
+        return NumberUtils.isParsable(s);
     }
 
     @Override

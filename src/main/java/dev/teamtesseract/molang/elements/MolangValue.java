@@ -12,9 +12,6 @@ public abstract class MolangValue<T> implements MolangElement {
 
     @Override
     public String toString() {
-        if(value instanceof String)
-            return "[\"" + value + "\"]";
-        else
-            return "[" + value + "]";
+        return value instanceof String ? String.format("[\"%s\"]", value) : String.format("[%s]", value);
     }
 }

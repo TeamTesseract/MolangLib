@@ -1,7 +1,6 @@
 package dev.teamtesseract.molang;
 
 import dev.teamtesseract.molang.context.DummyContext;
-import dev.teamtesseract.molang.context.MolangEntityContext;
 import dev.teamtesseract.molang.elements.MolangExpression;
 import org.junit.jupiter.api.Test;
 

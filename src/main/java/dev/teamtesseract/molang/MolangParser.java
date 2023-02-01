@@ -119,7 +119,7 @@ public class MolangParser {
     }
 
     public static MolangElement parseToken(String token) {
-        List<MolangElement> validElements = new ArrayList<>(ELEMENTS.keySet()).stream().filter(e -> e.isValidToken(token)).collect(Collectors.toList());
+        List<MolangElement> validElements = new ArrayList<>(ELEMENTS.keySet()).stream().filter(e -> e.isValidToken(token)).toList();
         return validElements.isEmpty() ? new MolangUnknown(token) : ELEMENTS.get(validElements.get(0)).create(token);
     }
 }
